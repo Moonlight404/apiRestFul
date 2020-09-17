@@ -1,6 +1,7 @@
 const object = {
+    "urlApi": "./api.php",
     "listar": function(){
-        fetch('./api.php', {
+        fetch(object.urlApi, {
             method: 'GET'
         }).then(function (response) {
             if (response.ok) {
@@ -18,7 +19,7 @@ const object = {
         app.load = true
     },
     "delete": function(codigo){
-        fetch(`./api.php?codigo=${codigo}`, {
+        fetch(`${object.urlApi}?codigo=${codigo}`, {
             method: 'DELETE'
         }).then(function (response) {
             if (response.ok) {
@@ -32,7 +33,7 @@ const object = {
         });
     },
     "update": function(data){
-        fetch(`./api.php`, {
+        fetch(`${object.urlApi}`, {
             method: 'PUT',
             body: JSON.stringify(data),
         }).then(function (response) {
@@ -47,7 +48,7 @@ const object = {
         });
     },
     "insertInto": function(data){
-        fetch(`./api.php`, {
+        fetch(`${object.urlApi}`, {
             method: 'POST',
             body: JSON.stringify(data),
         }).then(function (response) {
